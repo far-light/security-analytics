@@ -8,7 +8,7 @@ jobs:
   push-rules:
     runs-on: ubuntu-latest
     env:
-      region: europe # modify this to us, europe, or asia-southeast1 according to your region
+      region: US # modify this to us, europe, or asia-southeast1 according to your region
       rules_path: backends/chronicle/yaral # modify to the relative path in the root of the repository which contains rules
     steps:
       - name: Checkout repo content
