@@ -22,15 +22,15 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          if [ -f scripts/python/requirements.txt ]; then pip install -r scripts/python/requirements.txt; fi
+          if [ -f cicd/python/requirements.txt ]; then pip install -r scripts/python/requirements.txt; fi
 
       - name: Pre-upload dry run
         run: |
-          python3 scripts/python/rules.py -i "${{ secrets.SA_CREDENTIAL }}" -l $rules_path -s -r $region
+          python3 cicd/python/rules.py -i "${{ secrets.SA_CREDENTIAL }}" -l $rules_path -s -r $region
 
       - name: Upload/update any rules
         run: |
-          python3 scripts/python/rules.py -i "${{ secrets.SA_CREDENTIAL }}" -l $rules_path -s -r $region -m
+          python3 cicd/python/rules.py -i "${{ secrets.SA_CREDENTIAL }}" -l $rules_path -s -r $region -m
 
       - name: Post-upload dry run
         run: |
